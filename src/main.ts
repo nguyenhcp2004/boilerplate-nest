@@ -3,6 +3,7 @@ import { AppModule } from './app.module'
 import { BadRequestException, ValidationPipe } from '@nestjs/common'
 import { ValidationError } from 'class-validator'
 import { AllHttpExceptionFilter } from '@exceptions/http-exception.filter'
+import { configSwagger } from '@configs/api-docs.config'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
@@ -20,6 +21,9 @@ async function bootstrap() {
       }
     })
   )
+
+  // Swagger
+  configSwagger(app)
   await app.listen(process.env.PORT ?? 3000)
 }
 bootstrap()
