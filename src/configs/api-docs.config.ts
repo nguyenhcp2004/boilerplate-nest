@@ -8,6 +8,7 @@ const api_documentation_credentials = {
 }
 
 export function configSwagger(app: INestApplication) {
+  console.log('configSwagger')
   const config = new DocumentBuilder()
     .setTitle('Claim Request project')
     .setDescription('## The Claim Request API description')
